@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Staff Dashboard | GRAZIE</title><link rel="stylesheet" href="styles.css">    <link rel="stylesheet" href="mobile-responsive.css">
+</head>
+<body>
+<header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.html"><span>GRAZIE</span></a><button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button><nav class="main-nav"><a href="index.html">Website</a><a href="account.html" data-account-link>Account</a><button class="btn secondary small-btn" id="staffLogout">Log out</button></nav></div></header>
+<main class="dashboard"><div class="container">
+<div id="dashboardApp" class="hidden">
+<div class="dash-head"><div><p class="eyebrow">CONTROL CENTER</p><h1>Grazie Staff Dashboard</h1><p id="roleText" class="muted"></p></div><span class="role-badge" id="roleBadge"></span></div>
+<div class="stats" id="stats"></div>
+<div class="dash-grid">
+<section class="card"><div class="card-head"><h2>Orders</h2><button class="btn secondary small-btn" id="clearOrders">Clear demo data</button></div><div class="table-wrap"><table><thead><tr><th>ID</th><th>Customer</th><th>Type</th><th>Total</th><th>Status</th><th>Action</th></tr></thead><tbody id="ordersTable"></tbody></table></div></section>
+<section class="card"><h2>Reservations</h2><div class="table-wrap"><table><thead><tr><th>Customer</th><th>Date</th><th>Time</th><th>Guests</th><th>Status</th></tr></thead><tbody id="reservationsTable"></tbody></table></div></section>
+<section class="card" id="customerFeedbackPanel"><div class="card-head"><div><h2>Customer Ratings & Feedback</h2><p class="muted">Staff can review ratings and comments submitted for completed orders.</p></div></div><div class="table-wrap"><table><thead><tr><th>Order</th><th>Customer</th><th>Rating</th><th>Feedback</th><th>Submitted</th></tr></thead><tbody id="customerFeedbackTable"></tbody></table></div></section>
+<section class="card" id="inquiriesPanel"><div class="card-head"><div><h2>Inquiries</h2><p class="muted">Messages submitted through the Contact Us section appear here for staff and admin.</p></div><span class="inquiry-count" id="inquiryCount">0</span></div><div class="table-wrap"><table><thead><tr><th>From</th><th>Email</th><th>Message</th><th>Submitted</th></tr></thead><tbody id="inquiriesTable"></tbody></table></div></section>
+</div>
+<section class="card admin-only" id="systemPanel"><div class="card-head"><h2>System controls</h2><span class="muted">Admin only</span></div><div class="system-grid">
+<label>Sales tax rate (%)<input id="taxSetting" type="number" step="0.01"></label>
+<label>Restaurant name<input id="nameSetting"></label>
+<label>Currency symbol<input id="currencySetting" maxlength="3"></label>
+</div><button class="btn primary" id="saveSettings">Save system settings</button><p id="settingsMessage" class="form-message"></p></section>
+</div></div></main><script src="app.js"></script></body></html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Account | GRAZIE</title><link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile-responsive.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html"><span>GRAZIE</span></a><button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="main-nav"><a href="index.html#menu">Menu</a><a href="index.html#reserve">Reserve</a><a href="account.html" data-account-link>Account</a></nav>
+  </div>
+</header>
+
+<main class="section">
+<div class="container auth-layout">
+  <section class="auth-card" id="authPanel">
+    <div class="tabs">
+      <button class="tab active" data-tab="login">Log in</button>
+      <button class="tab" data-tab="signup">Sign up</button>
+    </div>
+
+    <form id="loginForm" class="auth-form">
+      <p class="eyebrow">GRAZIE</p>
+      <h1>Welcome back</h1>
+      <p class="muted">Customers, staff and administrators all use this login.</p>
+      <label>Email or username<input id="loginId" autocomplete="username" required></label>
+      <label>Password<input id="loginPassword" type="password" autocomplete="current-password" required></label>
+      <button class="btn primary full">Log in</button>
+      <p id="loginMessage" class="form-message"></p>
+    </form>
+
+    <form id="signupForm" class="auth-form hidden">
+      <p class="eyebrow">JOIN GRAZIE</p>
+      <h1>Create your account</h1>
+      <label>Full name<input id="signupName" required></label>
+      <label>Email<input id="signupEmail" type="email" autocomplete="email" required></label>
+      <label>Password<input id="signupPassword" type="password" minlength="6" autocomplete="new-password" required></label>
+      <label>Confirm password<input id="signupPasswordConfirm" type="password" minlength="6" autocomplete="new-password" required></label>
+      <button class="btn primary full">Create account</button>
+      <p id="signupMessage" class="form-message"></p>
+    </form>
+  </section>
+
+  <section class="auth-side">
+    <p class="eyebrow">ONE LOGIN</p>
+    <h2>One place to access your Grazie account.</h2>
+    <p>Customers are taken to their profile after signing in. Authorized staff use the same login form but are automatically sent to their staff dashboard.</p>
+  </section>
+
+  <section class="profile-card hidden" id="profilePanel">
+    <div class="profile-header">
+      <div class="profile-picture-wrap">
+        <img id="profilePicture" class="profile-picture" alt="Profile picture">
+        <label class="picture-btn">Change picture<input id="profilePictureInput" type="file" accept="image/*" hidden></label>
+      </div>
+      <div>
+        <p class="eyebrow">MY PROFILE</p>
+        <h1 id="profileGreeting">Your profile</h1>
+        <p id="profileEmail" class="muted"></p>
+      </div>
+    </div>
+
+    <form id="profileForm" class="profile-form">
+      <h2>Personal details</h2>
+      <div class="form-grid">
+        <label>Full name<input id="profileName" required></label>
+        <label>Email<input id="profileEmailInput" type="email" disabled></label>
+      </div>
+
+      <h2>Change password</h2>
+      <div class="form-grid">
+        <label>New password<input id="profilePassword" type="password" minlength="6" placeholder="Leave blank to keep current"></label>
+        <label>Confirm new password<input id="profilePasswordConfirm" type="password" minlength="6"></label>
+      </div>
+
+      <div class="profile-actions">
+        <button class="btn primary">Save changes</button>
+      </div>
+      <p id="profileMessage" class="form-message"></p>
+    </form>
+
+    <section class="profile-card wallet-card">
+      <h2>Payment Wallets</h2>
+      <p class="muted small">Save your preferred payment wallets for faster checkout.</p>
+
+      <div class="wallet-payment-section">
+        <div class="wallet-payment-title">
+          <h3>Credit and Debit Cards</h3>
+        </div>
+        <div class="card-brand-grid" aria-label="Supported credit and debit cards">
+          <span class="card-brand-chip"><img src="assets/payment/visa.svg" alt="VISA"></span>
+          <span class="card-brand-chip"><img src="assets/payment/mastercard.svg" alt="MasterCard"><strong>MasterCard</strong></span>
+          <span class="card-brand-chip"><img src="assets/payment/bdo.svg" alt="BDO"></span>
+          <span class="card-brand-chip"><img src="assets/payment/unionbank.svg" alt="UnionBank"></span>
+          <span class="card-brand-chip"><img src="assets/payment/bpi.svg" alt="BPI"></span>
+          <span class="card-brand-chip"><img src="assets/payment/metrobank.svg" alt="Metrobank"></span>
+        </div>
+        <p class="muted small">For this prototype, card details are saved locally. Do not use real card information.</p>
+        <div class="form-grid">
+          <label>Card Network or Bank
+            <select id="paymentBank">
+              <option value="">Select card network or bank</option>
+              <option value="VISA">VISA</option>
+              <option value="MasterCard">MasterCard</option>
+              <option value="BDO">BDO</option>
+              <option value="UnionBank">UnionBank</option>
+              <option value="BPI">BPI</option>
+              <option value="Metrobank">Metrobank</option>
+            </select>
+          </label>
+          <label>Cardholder Name<input id="paymentName" autocomplete="off"></label>
+          <label>Card Number<input id="paymentCard" inputmode="numeric" autocomplete="off" placeholder="Demo card only"></label>
+          <label>Expiry<input id="paymentExpiry" autocomplete="off" placeholder="MM/YY"></label>
+          <label>Billing ZIP<input id="paymentZip" autocomplete="off"></label>
+        </div>
+        <button class="btn primary" type="button" id="saveCardBtn">Save Card</button>
+        <div id="savedCard" class="saved-wallets"></div>
+      </div>
+
+      <div class="wallet-payment-section">
+        <div class="wallet-payment-title"><h3>Other Payment Wallets</h3></div>
+        <div class="form-grid">
+          <label>Provider<select id="walletProvider"><option value="">Select provider</option><option>GCash</option><option>Maya</option><option>PayPal</option><option>Bank QR</option></select></label>
+          <label>Account / mobile / email<input id="walletAccount" placeholder="09xxxxxxxxx or email@example.com"></label>
+        </div>
+        <button class="btn primary" type="button" id="saveWalletBtn">Save Wallet</button>
+        <div id="savedWallets" class="saved-wallets"></div>
+      </div>
+    </section>
+    <section class="profile-reservations">
+      <div class="card-head"><div><h2>My reservations</h2><p class="muted recent-orders-hint">Your reservation status is updated by GRAZIE staff.</p></div></div>
+      <div id="myReservations"></div>
+    </section>
+    <div class="profile-orders">
+      <div class="card-head"><div><h2>My recent orders</h2><p class="muted recent-orders-hint">Tap an order bubble to view details, payment, and rating.</p></div></div>
+      <div id="myOrders"></div>
+    </div>
+    <div class="profile-logout-bottom">
+      <button class="btn secondary" type="button" id="profileLogout">Log out</button>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer class="footer"><div class="container"><span>© <span id="year"></span> GRAZIE</span></div></footer>
+<script src="app.js"></script>
+</body>
+</html>
