@@ -22,7 +22,7 @@ Customer:
 Staff:
 - Moderator and admin sign in through the same customer login terminal on `account.html`.
 - Successful staff login automatically routes to `admin.html`.
-- Moderator username: `moderator`
+- Moderator username: `staff`
 - Moderator password: `dahi123`
 - Admin username: `admin`
 - Admin password: `dahi123`
